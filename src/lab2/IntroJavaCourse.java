@@ -1,45 +1,48 @@
 package lab2;
-
 /**
- * Describe responsibilities here.
- *
- * @author your name goes here
- * @version 1.00
+ The IntroJavaCourse class represents an introductory java course that teaches basic java programming concepts and techniques.
+ This class extends the abstract Courses class and implements the Course interface to define specific values for the course name, course number, credits, and prerequisites.
+ This class is responsible for:
+ Defining the specific properties and behavior of an Intro Java course, including its name, number, credits, and prerequisites
+ Ensuring that the course information is accurately represented and can be accessed through getter methods
+ Providing a standardized way to represent Intro Java courses in the application
+ This class collaborates with the abstract Courses class and the Course interface to ensure that it follows the conventions and requirements for all courses in the application.
+ @author Thomas Barrath
+ @version 1.00
  */
-public class IntroJavaCourse {
+public class IntroJavaCourse extends Courses implements Course {
 
-    String courseName;
-    private String courseNumber;
-    private double credits;
-    private String prerequisites;
-
-    public IntroJavaCourse(String courseName, String courseNumber) {
-        this.courseName = courseName;
-        this.courseNumber = courseNumber;
+    public IntroJavaCourse(String courseName, String courseNumber, double credits, String prerequisites) {
+        super(courseName,courseNumber,credits,prerequisites);
     }
 
+    @Override
+    public String getCourseName() {
+        return "Introduction to Java";
+    }
+
+    @Override
     public String getCourseNumber() {
-        return courseNumber;
+        return "158-108";
     }
 
-    public void setCourseNumber(String courseNumber) {
-        this.courseNumber = courseNumber;
-    }
-
+    @Override
     public double getCredits() {
-        return credits;
+        return 3;
     }
 
-    public void setCredits(double credits) {
-        this.credits = credits;
-    }
-
+    @Override
     public String getPrerequisites() {
-        return prerequisites;
+        return "156-109";
     }
 
-    public void setPrerequisites(String prerequisites) {
-        this.prerequisites = prerequisites;
+    @Override
+    public String toString() {
+        return "IntroJavaCourse{" +
+                "courseName='" + getCourseName() + '\'' +
+                ", courseNumber='" + getCourseNumber() + '\'' +
+                ", credits=" + getCredits() +
+                ", prerequisites='" + getPrerequisites() + '\'' +
+                '}';
     }
-
 }
